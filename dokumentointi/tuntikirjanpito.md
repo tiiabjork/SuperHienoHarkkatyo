@@ -1,0 +1,1 @@
+to 21.1. 3h - Githubin sההtצה koneelle
