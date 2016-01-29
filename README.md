@@ -1,2 +1,4 @@
 # SuperHienoHarkkatyo
-jeejee
+
+**Dokumentaatio**
+[aiheen kuvaus](dokumentaatio/aiheenKuvausJaM‰‰ritelm‰.md)
