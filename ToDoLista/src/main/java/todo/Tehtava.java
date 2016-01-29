@@ -1,5 +1,5 @@
 
-package tiia.bjork.todolista;
+package todo;
 
 
 public class Tehtava {

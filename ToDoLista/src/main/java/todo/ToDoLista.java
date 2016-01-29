@@ -1,5 +1,6 @@
-package tiia.bjork.todolista;
+package todo;
 
+import todo.Tehtava;
 import java.util.ArrayList;
 import java.util.List;
 
