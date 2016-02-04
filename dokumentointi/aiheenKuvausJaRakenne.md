@@ -17,3 +17,8 @@ Yksittäinen henkilö.
 **Määrittelyvaiheen luokkakaavio**
 
 ![Mitäs tähän voi laittaa](/dokumentointi/todolistaMaaritteluvaiheenLuokkakaavio.png)
+
+**Tarkennettu luokkakaavio**
+
+![Mitäs tähän voisi taas laittaa]
+(/dokumentointi/todolistaTarkennettuLuokkakaavio.png)

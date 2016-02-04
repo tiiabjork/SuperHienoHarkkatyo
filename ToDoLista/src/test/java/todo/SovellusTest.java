@@ -15,12 +15,16 @@ public class SovellusTest {
     ByteArrayOutputStream tulosvirta;
 
     Sovellus listat;
+    ToDoLista lista;
 
     @Before
     public void setUp() {
         listat = new Sovellus();
         tulosvirta = new ByteArrayOutputStream();
         System.setOut(new PrintStream(tulosvirta));
+        lista = new ToDoLista("Testilista");
+        lista.lisaaTehtava("Testilisäys");
+        lista.lisaaTehtava("Toinen testilisäys");
     }
 
     @Test
@@ -61,5 +65,54 @@ public class SovellusTest {
         listat.poistaLista("Seuraavaan halkoon");
         String tuloste = tulosvirta.toString();
         assertTrue(tuloste.contains("Ei ole mitään poistettavaa"));
+    }
+    
+    @Test
+    public void valmiinListanLisays() {
+        listat.lisaaLista(lista);
+        assertEquals(listat.palautaListojenMaara(), 1);
+    }
+    
+    @Test
+    public void listanTulostus() {
+        listat.lisaaLista(lista);
+        listat.tulostaListanSisalto(lista);
+        String tuloste = tulosvirta.toString();
+        assertTrue(tuloste.contains("Tekemättömät tehtävät:"));
+        assertTrue(tuloste.contains("Testilisäys"));
+        assertTrue(tuloste.contains("Toinen testilisäys"));
+        assertTrue(tuloste.contains("Sinulla ei ole tehtyjä tehtäviä!"));
+    }
+    
+    @Test
+    public void listojenPalautus() {
+        listat.lisaaLista(lista);
+        assertEquals(listat.palautaListat().size(), 1);
+    }
+    
+    @Test
+    public void palautaTiettyLista() {
+        listat.lisaaLista(lista);
+        assertEquals(listat.palautaLista("Testilista").palautaListanNimi(), "Testilista");     
+    }
+    
+    @Test
+    public void eiOleListojaJoitaPalauttaa() {
+        assertEquals(listat.palautaLista("Testilista"), null);
+    }
+    
+    @Test
+    public void tulostaKaikkiListojenSisallot() {
+        listat.lisaaLista(lista);
+        listat.lisaaLista(new ToDoLista("Tyhjälista"));
+        listat.tulostaKaikkienListojenSisalto();
+        
+        String tuloste = tulosvirta.toString();
+        
+        assertTrue(tuloste.contains("Tekemättömät tehtävät:"));
+        assertTrue(tuloste.contains("Testilisäys"));
+        assertTrue(tuloste.contains("Toinen testilisäys"));
+        assertTrue(tuloste.contains("Sinulla ei ole tehtyjä tehtäviä!"));
+        assertTrue(tuloste.contains("Sinulla ei ole tekemättömiä tehtäviä!"));
     }
 }

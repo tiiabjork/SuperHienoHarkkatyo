@@ -27,7 +27,9 @@ public class ToDoLista {
     }
 
     public void lisaaTehtava(String tehtava) {
-        tekemattomat.add(new Tehtava(tehtava));
+        if (!tehtava.equals("") && !tehtava.isEmpty()) {
+            tekemattomat.add(new Tehtava(tehtava));
+        }
     }
 
     public void siirraTehtyTehtavaTehtyihinTehtaviin() {
