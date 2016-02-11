@@ -6,3 +6,6 @@
 
 **Torstai 4.2.**
 * Ohjelman laajennusta ja graafiseen käyttöliittymään tutustumista. Käyttöliittymäkokeiluja. ~9h
+
+**Torstai 11.2.**
+* Teksikäyttöliittymän kehittämistä ja graafisen käyttöliittymän ihmettelyä. ~2h

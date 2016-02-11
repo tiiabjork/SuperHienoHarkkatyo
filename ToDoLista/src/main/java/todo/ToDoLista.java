@@ -52,6 +52,21 @@ public class ToDoLista {
         return kaikkiTehtavat;
     }
     
+    public List<String> palautaKaikkiTehtavatStringina() {
+        ArrayList<String> kaikkiTehtavat = new ArrayList<>();
+        kaikkiTehtavat.addAll(palautaStringListana(tekemattomat));
+        kaikkiTehtavat.addAll(palautaStringListana(tehdyt));
+        return kaikkiTehtavat;
+    }
+    
+    public List<String> palautaStringListana(ArrayList<Tehtava> lista) {
+        ArrayList<String> kaikkiTehtavat = new ArrayList<>();
+        for(Tehtava duuni : lista) {
+            kaikkiTehtavat.add(duuni.toString());
+        }
+        return kaikkiTehtavat;
+    }
+    
     public List<Tehtava> palautaTekemattomat() {
         return tekemattomat;
     }

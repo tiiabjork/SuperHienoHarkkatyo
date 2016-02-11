@@ -43,6 +43,11 @@ public class GrafiikkaUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel1.setText("To Do -Lista");
 
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -90,10 +95,20 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         Object valittuLista = jComboBox1.getSelectedItem();
         ToDoLista lista = sove.palautaLista(valittuLista);
-        for (Tehtava duuni : lista.palautaKaikkiTehtavat()) {
-//            jList1.getModel(). MITEN TÄMÄN SAA????
-        }
+        
+
+//        jList1.setModel(javax.swing.DefaultListModel<(lista.palautaKaikkiTehtavatStringina().toArray())>);
+//        valittuLista.
+//        for (Tehtava duuni : lista.palautaKaikkiTehtavat()) {
+//            jList1.getModel()
+//        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        Object valittuLista = jComboBox1.getSelectedItem();
+        ToDoLista lista = sove.palautaLista(valittuLista);
+        jList1 = new javax.swing.JList(lista.palautaKaikkiTehtavatStringina().toArray());
+    }//GEN-LAST:event_jComboBox1MouseClicked
 
     /**
      * @param args the command line arguments
