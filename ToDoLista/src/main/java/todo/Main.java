@@ -1,12 +1,14 @@
 package todo;
 
+import java.util.Scanner;
 import todo.grafiikka.GrafiikkaUI;
 import todo.kayttoliittyma.Kayttoliittyma;
 
 public class Main {
 
     public static void main(String[] args) {
-        Kayttoliittyma kayttis = new Kayttoliittyma();
+        Scanner lukija = new Scanner(System.in);
+        Kayttoliittyma kayttis = new Kayttoliittyma(lukija);
         kayttis.kaynnista();
         
 //        Sovellus sove = new Sovellus();

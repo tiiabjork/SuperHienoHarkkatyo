@@ -59,7 +59,7 @@ public class ToDoLista {
         return kaikkiTehtavat;
     }
     
-    public List<String> palautaStringListana(ArrayList<Tehtava> lista) {
+    public List<String> palautaStringListana(List<Tehtava> lista) {
         ArrayList<String> kaikkiTehtavat = new ArrayList<>();
         for(Tehtava duuni : lista) {
             kaikkiTehtavat.add(duuni.toString());

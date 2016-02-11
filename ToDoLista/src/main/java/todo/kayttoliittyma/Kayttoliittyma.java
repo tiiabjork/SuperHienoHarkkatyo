@@ -10,9 +10,9 @@ public class Kayttoliittyma {
     private Sovellus sove;
     private Scanner lukija;
 
-    public Kayttoliittyma() {
+    public Kayttoliittyma(Scanner lukija) {
         sove = new Sovellus();
-        lukija = new Scanner(System.in);
+        this.lukija = lukija;
     }
 
     public void kaynnista() {

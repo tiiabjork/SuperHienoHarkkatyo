@@ -74,14 +74,29 @@ public class SovellusTest {
     }
     
     @Test
-    public void listanTulostus() {
+    public void listanTulostusTekemattomillaTehtavilla() {
         listat.lisaaLista(lista);
         listat.tulostaListanSisalto(lista);
         String tuloste = tulosvirta.toString();
+        assertTrue(tuloste.contains("Testilista"));
+        assertTrue(tuloste.contains(""));
         assertTrue(tuloste.contains("Tekemättömät tehtävät:"));
-        assertTrue(tuloste.contains("Testilisäys"));
-        assertTrue(tuloste.contains("Toinen testilisäys"));
-        assertTrue(tuloste.contains("Sinulla ei ole tehtyjä tehtäviä!"));
+        assertTrue(tuloste.contains("   Testilisäys"));
+        assertTrue(tuloste.contains("   Toinen testilisäys"));
+        
+    }   
+        @Test
+        public void listanTulostusTehdyillaTehtavilla() {
+        listat.lisaaLista(lista);
+        lista.muutaTehdyksi("Testilisäys");
+        listat.tulostaListanSisalto(lista);
+        String tuloste = tulosvirta.toString();
+        assertTrue(tuloste.contains("Testilista"));
+        assertTrue(tuloste.contains(""));
+        assertTrue(tuloste.contains("Tekemättömät tehtävät:"));
+        assertTrue(tuloste.contains("   Toinen testilisäys"));
+        assertTrue(tuloste.contains("Tehdyt tehtävät:"));
+        assertTrue(tuloste.contains("   Testilisäys"));
     }
     
     @Test
@@ -110,8 +125,8 @@ public class SovellusTest {
         String tuloste = tulosvirta.toString();
         
         assertTrue(tuloste.contains("Tekemättömät tehtävät:"));
-        assertTrue(tuloste.contains("Testilisäys"));
-        assertTrue(tuloste.contains("Toinen testilisäys"));
+        assertTrue(tuloste.contains("   Testilisäys"));
+        assertTrue(tuloste.contains("   Toinen testilisäys"));
         assertTrue(tuloste.contains("Sinulla ei ole tehtyjä tehtäviä!"));
         assertTrue(tuloste.contains("Sinulla ei ole tekemättömiä tehtäviä!"));
     }

@@ -1,7 +1,7 @@
 package todo;
 
-
-
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -60,30 +60,62 @@ public class ToDoListaTest {
         lista.lisaaTehtava("Avaimet");
         lista.lisaaTehtava("Klusterihengailut");
         lista.lisaaTehtava("Nakkeilu Tekiksen vujuilla");
-        
+
         lista.muutaTehdyksi("Avaimet");
         lista.muutaTehdyksi("Klusterihengailut");
         lista.muutaTehdyksi("Nakkeilu Tekiksen vujuilla");
-        
+
         assertEquals(lista.tekemattomiaTehtavia(), 0);
         assertEquals(lista.tehtyjaTehtavia(), 3);
         assertEquals(lista.palautaKaikkiTehtavat().size(), 3);
     }
-    
+
     @Test
     public void tehdyjaJaTekemattomiaTehtavia() {
         lista.lisaaTehtava("Avaimet");
         lista.lisaaTehtava("Klusterihengailut");
         lista.lisaaTehtava("Nakkeilu Tekiksen vujuilla");
-        
+
         lista.muutaTehdyksi("Avaimet");
-        
+
         lista.lisaaTehtava("Valitkaa edustajat opetuksenkehityksentyöryhmään");
-        
-        
+
         assertEquals(lista.tekemattomiaTehtavia(), 3);
         assertEquals(lista.tehtyjaTehtavia(), 1);
         assertEquals(lista.palautaKaikkiTehtavat().size(), 4);
+    }
+
+    @Test
+    public void palautaStringListaTekemattomistaTehtavista() {
+        lista.lisaaTehtava("Avaimet");
+        lista.lisaaTehtava("Klusterihengailut");
+        List<String> stringiLista = lista.palautaStringListana(lista.palautaTekemattomat());
+
+        assertTrue(stringiLista.contains("Avaimet"));
+        assertTrue(stringiLista.contains("Klusterihengailut"));
+    }
+    
+    @Test
+    public void palautaStringiListaTehdyistaTehtavista() {
+        lista.lisaaTehtava("Avaimet");
+        lista.muutaTehdyksi("Avaimet");
+        List<String> StringiLista = lista.palautaStringListana(lista.palautaTehdyt());
+        assertTrue(StringiLista.contains("Avaimet"));
+    }
+    
+    @Test
+    public void palautaStringiListaKaikistaTehtavista() {
+        lista.lisaaTehtava("Avaimet");
+        lista.lisaaTehtava("Klusterihengailut");
+        lista.lisaaTehtava("Blöö");
+
+        lista.muutaTehdyksi("Avaimet");
+        
+        List<String> StringiLista = lista.palautaKaikkiTehtavatStringina();
+        
+        assertTrue(StringiLista.contains("Avaimet"));
+        assertTrue(StringiLista.contains("Klusterihengailut"));
+        assertTrue(StringiLista.contains("Blöö"));
     }
 
 }
