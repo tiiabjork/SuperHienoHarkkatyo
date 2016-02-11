@@ -9,3 +9,4 @@
 
 **Torstai 11.2.**
 * Teksikäyttöliittymän kehittämistä ja graafisen käyttöliittymän ihmettelyä. ~2h
+* Tekstikäyttöliittymän jatkamista ja testien parantelua. ~3h
