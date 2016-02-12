@@ -12,6 +12,6 @@ Ohjelmassa k‰ytt‰j‰ voi valita p‰‰valikosta mihin listaan haluaa menn‰, ja muoka
 
 **Testaus**
 
-[Pit Raportti](dokumentointi/pit/201602122206/index.html)
+[Pit Raportti](file:///C:/Users/Tiia/Documents/GitHub/SuperHienoHarkkatyo/dokumentointi/pit/201602122206/index.html)
 
-[Checkstyle Raportti](dokumentointi/checkstyle/checkstyle.html)
+[Checkstyle Raportti](file:///C:/Users/Tiia/Documents/GitHub/SuperHienoHarkkatyo/dokumentointi/checkstyle/checkstyle.html)
