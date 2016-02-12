@@ -9,9 +9,3 @@ Ohjelmassa k‰ytt‰j‰ voi valita p‰‰valikosta mihin listaan haluaa menn‰, ja muoka
 [Aiheen kuvaus](dokumentointi/aiheenKuvausJaRakenne.md)
 
 [Tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
-
-**Testaus**
-
-[Pit Raportti](file:///C:/Users/Tiia/Documents/GitHub/SuperHienoHarkkatyo/dokumentointi/pit/201602122206/index.html)
-
-[Checkstyle Raportti](file:///C:/Users/Tiia/Documents/GitHub/SuperHienoHarkkatyo/dokumentointi/checkstyle/checkstyle.html)
