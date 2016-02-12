@@ -3,6 +3,13 @@ package todo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Sovellus-luokka mahdollistaa monien todo-listojen käytön ja hallinnoinnin
+ * yhtäaikaisesti. Luokassa voi tulostaa listojen sisältöä ja hallinnoida
+ * listojen luontia.
+ * 
+ * @author Tiia
+ */
 public class Sovellus {
 
     private ArrayList<ToDoLista> listat;
@@ -18,6 +25,11 @@ public class Sovellus {
         return listat.size();
     }
 
+    /**
+     * Metodilla luodaan uusi lista ja annetaan sille nimi.
+     * 
+     * @param listanNimi Käyttäjä antaa uuden listan nimen
+     */
     public void uusiLista(String listanNimi) {
         listat.add(new ToDoLista(listanNimi));
     }
@@ -26,6 +38,11 @@ public class Sovellus {
         return listat;
     }
     
+    /**
+     * Metodilla halutaan etsiä se lista-olio, jonka nimi annetaan parametrina.
+     * @param etsittava Käyttäjä syöttää listan nimen
+     * @return Etsittävä lista palautuu
+     */
     public ToDoLista palautaLista(Object etsittava) {
         for (ToDoLista lista : listat) {
             if (lista.palautaListanNimi().equals(etsittava)) {
@@ -34,11 +51,15 @@ public class Sovellus {
         }
         return null;
     }
-    
+      
     public void lisaaLista(ToDoLista lista) {
         listat.add(lista);
     }
 
+    /**
+     * Metodi poistaa sen listan, jonka nimi annetaan parametrina.
+     * @param listanNimi Käyttäjä syöttää poistettavan listan nimen
+     */
     public void poistaLista(String listanNimi) {
         ToDoLista poistettava = null;
 
@@ -56,12 +77,25 @@ public class Sovellus {
         }
     }
 
+    /**
+     * Metodi tulostaa kaikkien listojen sisällön kutsumalla saman luokan
+     * sisällä olevaa metodia jokaiselle listalle.
+     */
     public void tulostaKaikkienListojenSisalto() {
         for (ToDoLista lista : listat) {
             tulostaListanSisalto(lista);
         }
     }
 
+    /**
+     * Metodi tulostaa parametrina annetun listan sisällön tyylitellysti.
+     * 
+     * @param lista ToDoLista-olio, joka halutaan tulostaa
+     * 
+     * @see todo.ToDoLista#palautaListanNimi() 
+     * @see todo.ToDoLista#palautaTekemattomat() 
+     * @see todo.ToDoLista#palautaTehdyt()
+     */
     public void tulostaListanSisalto(ToDoLista lista) {
         System.out.println(lista.palautaListanNimi());
         System.out.println("");

@@ -1,7 +1,8 @@
 
 package todo;
-
-
+/**
+ * Luokka kuvaa tehtävää ja muuttaa sen ominaisuuksia.
+ */
 public class Tehtava {
     private String tehtavakuvaus;
     private boolean onkoTehty;
@@ -15,7 +16,10 @@ public class Tehtava {
     public String toString() {
         return tehtavakuvaus;
     }
-    
+    /**
+     * Metodi palauttaa kyseisen tehtävän tilan. Onko se tehty vai tekemätön.
+     * @return 
+     */
     public boolean onkoTehty() {
         return onkoTehty;
     }

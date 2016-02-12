@@ -22,3 +22,8 @@ Yksittäinen henkilö.
 
 ![Mitäs tähän voisi taas laittaa]
 (/dokumentointi/todolistaTarkennettuLuokkakaavio.png)
+
+**Luokkakaavioon otettu mukaan uusi luokka**
+
+![Yolo]
+(/dokumentointi/todolistaYhaTarkempiLuokkakaavio.png)
