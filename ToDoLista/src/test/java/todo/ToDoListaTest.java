@@ -24,7 +24,12 @@ public class ToDoListaTest {
     public void mikaListanNimiOn() {
         assertEquals("Seuraavaan halkoon", lista.palautaListanNimi());
     }
-
+    
+    @Test
+    public void mitenToStringiToimii() {
+        assertEquals("Seuraavaan halkoon", lista.toString());
+    }
+    
     @Test
     public void lisataanTehtava() {
         lista.lisaaTehtava("Avaimet");
@@ -116,6 +121,25 @@ public class ToDoListaTest {
         assertTrue(StringiLista.contains("Avaimet"));
         assertTrue(StringiLista.contains("Klusterihengailut"));
         assertTrue(StringiLista.contains("Blöö"));
+    }
+    
+    
+    
+    @Test
+    public void siirraTehtaviaTakaisinTekemattomaksi() {
+        lista.lisaaTehtava("Avaimet");
+        lista.lisaaTehtava("Klusterihengailut");
+        lista.lisaaTehtava("Nakkeilu Tekiksen vujuilla");
+
+        lista.muutaTehdyksi("Avaimet");
+        lista.muutaTehdyksi("Klusterihengailut");
+        
+        lista.muutaTekemattomaksi("Avaimet");
+        lista.muutaTekemattomaksi("Klusterihengailut");
+
+        assertEquals(lista.tekemattomiaTehtavia(), 3);
+        assertEquals(lista.tehtyjaTehtavia(), 0);
+        assertEquals(lista.palautaKaikkiTehtavat().size(), 3);
     }
 
 }

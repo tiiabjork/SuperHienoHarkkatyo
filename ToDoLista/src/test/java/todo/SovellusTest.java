@@ -130,4 +130,34 @@ public class SovellusTest {
         assertTrue(tuloste.contains("Sinulla ei ole tehtyjä tehtäviä!"));
         assertTrue(tuloste.contains("Sinulla ei ole tekemättömiä tehtäviä!"));
     }
+    
+    @Test
+    public void palauttaaEtsittavanListan() {
+        listat.lisaaLista(lista);
+        listat.lisaaLista(new ToDoLista("Tyhjälista"));
+        
+        assertEquals(listat.palautaLista(lista).palautaListanNimi(), "Testilista");
+    }
+    
+    @Test
+    public void palauttaaNullinJosListaaEiLoydy() {
+        listat.lisaaLista(lista);
+        ToDoLista listuli = new ToDoLista("Tätä ei löydy sovelluksen listasta");
+        assertEquals(listat.palautaLista(listuli), null);
+    }
+    
+    @Test
+    public void yritaPoistaaListaTyhjasta() {
+        assertEquals(listat.palautaListojenMaara(), 0);
+        listat.poistaLista("Kotityöt");
+        assertEquals(listat.palautaListojenMaara(), 0);
+    }
+    
+    @Test
+    public void poistaLista() {
+        listat.lisaaLista(lista);
+        listat.poistaLista(lista);
+        assertEquals(listat.palautaListojenMaara(), 0);
+    }
+    
 }

@@ -13,3 +13,6 @@
 
 **Perjantai 12.2.**
 * Tekstikäyttöliittymän kehittämistä ja testejä. Javadocsin tekoa. ~5h
+
+**Maanantai 15.2.**
+* Graafisen käyttöliittymän kehittämistä ja toimimista (!). ~3,5h

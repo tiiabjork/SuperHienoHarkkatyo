@@ -48,7 +48,7 @@ public class ToDoLista {
      * @see todo.Tehtava#onkoTehty()
      */
     public void muutaTekemattomaksi(String tehtava) {
-        for (Tehtava duuni : tekemattomat) {
+        for (Tehtava duuni : tehdyt) {
             if (tehtava.equals(duuni.toString())) {
                 duuni.merkitaanTekemattomaksi();
             }
@@ -162,8 +162,21 @@ public class ToDoLista {
         return tehdyt.size();
     }
 
+    @Override
+    public String toString() {
+        return nimi;
+    }
+    
     public String palautaListanNimi() {
         return nimi;
+    }
+
+    public void poistaTehtava(Tehtava muutettava) {
+        if (muutettava.onkoTehty()) {
+            tehdyt.remove(muutettava);
+        } else  {
+            tekemattomat.remove(muutettava);
+        }
     }
 
 }
