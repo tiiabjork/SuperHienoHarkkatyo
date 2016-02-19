@@ -14,10 +14,17 @@ public class Sovellus {
 
     private ArrayList<ToDoLista> listat;
 
+    /**
+     * Alustetaan uusi sovellus, johon luodaan uusi tyhjä ArrayList.
+     */
     public Sovellus() {
         listat = new ArrayList<>();
     }
 
+    /**
+     * Metodilla palautetaan luotujen todo-listojen tämän hetkinen määrä.
+     * @return listojen määrä
+     */
     public int palautaListojenMaara() {
         if (listat.isEmpty()) {
             return 0;
@@ -34,6 +41,10 @@ public class Sovellus {
         listat.add(new ToDoLista(listanNimi));
     }
 
+    /**
+     * Metodi palauttaa Listan tämän hetkisistä ToDolistoista.
+     * @return ToDoListoja
+     */
     public List<ToDoLista> palautaListat() {
         return listat;
     }
@@ -41,24 +52,30 @@ public class Sovellus {
     /**
      * Metodilla halutaan etsiä se lista-olio, jonka nimi annetaan parametrina.
      *
-     * @param etsittava Käyttäjä syöttää listan nimen
+     * @param etsittava Käyttäjä syöttää listan objectina
      * @return Etsittävä lista palautuu
      */
     public ToDoLista palautaLista(Object etsittava) {
         String listuli = (String) etsittava;
-//        for (ToDoLista lista : listat) {
-//            if (lista.palautaListanNimi().equals(listuli.palautaListanNimi())) {
-//                return lista;
-//            }
-//        }
         return palautaLista(listuli);
     }
     
+    /**
+     * Metodille annetaan ToDoLista olio, ja metodi etsii tämän listan olemassa
+     * olevista listoista.
+     * @param etsittava Käyttäjä syöttää ToDoListan jonka haluaa etsiä
+     * @return  Etsittävä lista palautuu
+     */
     public ToDoLista palautaLista(ToDoLista etsittava) {
         String listuli = etsittava.toString();
         return palautaLista(listuli);
     }
 
+    /**
+     * Metodilla etsitään ToDoListaa sen string-nimen avulla.
+     * @param etsittava Käyttäjän etsimä lista
+     * @return Etsittävä lista palautuu
+     */
     public ToDoLista palautaLista(String etsittava) {
         for (ToDoLista lista : listat) {
             if (lista.palautaListanNimi().equals(etsittava)) {
@@ -67,7 +84,10 @@ public class Sovellus {
         }
         return null;
     }
-
+ /**
+  * Metodilla voi lisätä uuden listan.
+  * @param lista ToDoLista olio joka halutaan lisätä listaan
+  */
     public void lisaaLista(ToDoLista lista) {
         listat.add(lista);
     }
@@ -139,6 +159,10 @@ public class Sovellus {
         System.out.println("");
     }
 
+    /**
+     * Metodi poistaa parametrina annetun lista-olion ArrayListista.
+     * @param lista Käyttäjän poistama ToDoLista
+     */
     public void poistaLista(ToDoLista lista) {
         if (listat.isEmpty()) {
             return;
