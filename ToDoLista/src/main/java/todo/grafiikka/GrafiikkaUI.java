@@ -272,36 +272,41 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     private void lisaaTehtavaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisaaTehtavaButtonActionPerformed
         if (lisaaTehtavaTextField.getText() == "" || lisaaTehtavaTextField.getText().isEmpty()) {
             return;
-        } else {
-            String lisattava = (String) lisaaTehtavaTextField.getText();
-            ToDoLista lista = (ToDoLista) sove.palautaLista(listatComboBox.getSelectedItem());
-            lista.lisaaTehtava(lisattava);
-            lisaaTehtavaTextField.setText("");
-            paivita(lista);
         }
+        String lisattava = (String) lisaaTehtavaTextField.getText();
+        ToDoLista lista = (ToDoLista) sove.palautaLista(listatComboBox.getSelectedItem());
+        lista.lisaaTehtava(lisattava);
+        lisaaTehtavaTextField.setText("");
+        paivita(lista);
     }//GEN-LAST:event_lisaaTehtavaButtonActionPerformed
 
     private void lisaaListaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisaaListaButtonActionPerformed
         if (lisaaListaTextField.getText() == "" || lisaaListaTextField.getText().isEmpty()) {
             return;
-        } else {
-            String lisattava = (String) lisaaListaTextField.getText();
-            ToDoLista uusiLista = new ToDoLista(lisattava);
-            sove.lisaaLista(uusiLista);
-            lisaaListaTextField.setText("");
-            listatComboBox.addItem(uusiLista.palautaListanNimi());
         }
+        String lisattava = (String) lisaaListaTextField.getText();
+        ToDoLista uusiLista = new ToDoLista(lisattava);
+        sove.lisaaLista(uusiLista);
+        lisaaListaTextField.setText("");
+        listatComboBox.addItem(uusiLista.palautaListanNimi());
+
+        paivita(uusiLista);
     }//GEN-LAST:event_lisaaListaButtonActionPerformed
 
     private void poistaValittuTehtavaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poistaValittuTehtavaButtonActionPerformed
         ToDoLista lista = (ToDoLista) sove.palautaLista(listatComboBox.getSelectedItem());
-        if (tehdytList.getSelectedValue() == null) {
-            Tehtava muutettava = (Tehtava) tekemattomatList.getSelectedValue();
-            lista.poistaTehtava(muutettava);
-        } else {
-            Tehtava muutettava = (Tehtava) tehdytList.getSelectedValue();
-            lista.poistaTehtava(muutettava);
-        }       
+//        if (tehdytList.getSelectedValue() != null) {
+//            Tehtava poistettava = (Tehtava) tehdytList.getSelectedValue();
+//            lista.poistaTehtava(poistettava);
+//        } else {
+//            Tehtava poistettava = (Tehtava) tekemattomatList.getSelectedValue();
+//            lista.poistaTehtava(poistettava);
+//        }
+        Tehtava pois = (Tehtava) tehdytList.getSelectedValue();
+        lista.poistaTehtava(pois);
+        Tehtava poistettava = (Tehtava) tekemattomatList.getSelectedValue();
+        lista.poistaTehtava(poistettava);
+
         paivita(lista);
     }//GEN-LAST:event_poistaValittuTehtavaButtonActionPerformed
 

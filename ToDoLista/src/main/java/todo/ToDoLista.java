@@ -172,6 +172,9 @@ public class ToDoLista {
     }
 
     public void poistaTehtava(Tehtava muutettava) {
+        if (muutettava == null) {
+            return;
+        }
         if (muutettava.onkoTehty()) {
             tehdyt.remove(muutettava);
         } else  {

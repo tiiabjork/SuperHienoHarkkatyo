@@ -19,3 +19,4 @@
 
 **Perjantai 19.2.**
 * Sekvenssikaavioiden luomista, sekä testien hiomista. ~3h
+* Graafisen käyttöliittymän nappuloiden toiminnan parantamista ja koodin muokkausta sen ehdoilla. ~1,5h

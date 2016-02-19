@@ -45,13 +45,18 @@ public class Sovellus {
      * @return Etsittävä lista palautuu
      */
     public ToDoLista palautaLista(Object etsittava) {
-        ToDoLista listuli = (ToDoLista) etsittava;
-        for (ToDoLista lista : listat) {
-            if (lista.palautaListanNimi().equals(listuli.palautaListanNimi())) {
-                return lista;
-            }
-        }
-        return null;
+        String listuli = (String) etsittava;
+//        for (ToDoLista lista : listat) {
+//            if (lista.palautaListanNimi().equals(listuli.palautaListanNimi())) {
+//                return lista;
+//            }
+//        }
+        return palautaLista(listuli);
+    }
+    
+    public ToDoLista palautaLista(ToDoLista etsittava) {
+        String listuli = etsittava.toString();
+        return palautaLista(listuli);
     }
 
     public ToDoLista palautaLista(String etsittava) {
