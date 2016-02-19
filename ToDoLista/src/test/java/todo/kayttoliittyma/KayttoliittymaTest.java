@@ -130,9 +130,25 @@ public class KayttoliittymaTest {
 
         assertTrue(tulos.contains("Sinulla ei ole tekemättömiä tehtäviä!"));
         assertTrue(tulos.contains("Tehdyt tehtävät:"));
-        assertTrue(tulos.contains("   1. kissa"));
-        
-        
+        assertTrue(tulos.contains("   1. kissa"));      
+    }
+    
+    @Test
+    public void testaaListanMuokkaamista() {
+        String syote = muodosta("1", "Avaimet", "2", "1", "4", "3");
+
+        Kayttoliittyma kt = new Kayttoliittyma(new Scanner(syote));
+        kt.kaynnista();
+
+        String tulos = tulosvirta.toString();
+
+        assertTrue(tulos.contains("   1. Lisää uusi tehtävä"));
+        assertTrue(tulos.contains("   2. Muuta tehtävä tehdyksi"));
+        assertTrue(tulos.contains("   3. Muuta tehtävä tekemättömäksi"));
+        assertTrue(tulos.contains("   4. Palaa takaisin päävalikkoon"));
+//        System.out.println("   5. Poista tehtävä listalta kokonaan"); ei vielä toteutettu koodiin
+        assertTrue(tulos.contains("Valitse toiminto: "));
+    
     }
 
     private String muodosta(String... rivit) {

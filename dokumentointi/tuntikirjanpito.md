@@ -16,3 +16,6 @@
 
 **Maanantai 15.2.**
 * Graafisen käyttöliittymän kehittämistä ja toimimista (!). ~3,5h
+
+**Perjantai 19.2.**
+* Sekvenssikaavioiden luomista, sekä testien hiomista. ~3h

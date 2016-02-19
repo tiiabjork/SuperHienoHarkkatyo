@@ -14,6 +14,8 @@ Yksittäinen henkilö.
 * Selaa listoja -kohdassa on mahdollisuus lisätä ja poistaa kohtia
 * Poistu -kohdassa poistutaan sovelluksesta tallentaen muutokset
 
+### Luokkakaavioita
+
 **Määrittelyvaiheen luokkakaavio**
 
 ![Mitäs tähän voi laittaa](/dokumentointi/todolistaMaaritteluvaiheenLuokkakaavio.png)
@@ -27,3 +29,13 @@ Yksittäinen henkilö.
 
 ![Yolo]
 (/dokumentointi/todolistaYhaTarkempiLuokkakaavio.png)
+
+### Sekvenssikaavioita
+
+**Sekvenssikaavio ToDo-Listan luomisesta**
+
+![Sekvenssikaavio](/dokumentointi/ToDo-ListanLuominen.png)
+
+**Sekvenssikaavio ToDo-Listan tehtävien muuttamisesta tehdyiksi**
+
+![Sekvenssikaavioo](/dokumentointi/tehtavienMuuttaminenTehdyksi.png)
