@@ -33,8 +33,9 @@ public class ToDoLista {
      *
      * @see todo.Tehtava#onkoTehty()
      */
+    
     public void muutaTehdyksi(String tehtava) {
-        for (Tehtava duuni : tekemattomat) {
+                for (Tehtava duuni : tekemattomat) {
             if (tehtava.equals(duuni.toString())) {
                 duuni.merkitaanTehdyksi();
             }
@@ -49,6 +50,7 @@ public class ToDoLista {
      *
      * @see todo.Tehtava#onkoTehty()
      */
+
     public void muutaTekemattomaksi(String tehtava) {
         for (Tehtava duuni : tehdyt) {
             if (tehtava.equals(duuni.toString())) {

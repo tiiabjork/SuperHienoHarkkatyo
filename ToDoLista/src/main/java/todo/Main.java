@@ -1,11 +1,12 @@
 package todo;
 
 import todo.grafiikka.GrafiikkaUI;
-import todo.kayttoliittyma.Kayttoliittyma;
 
 public class Main {
 
-    public static void main(String[] args) {       
+    public static void main(String[] args) {
+        //voisi tehdä tekstinlukujutun, minne tallentaa muutoksia
+        
         Sovellus sove = new Sovellus();
 
         GrafiikkaUI ikkuna = new GrafiikkaUI(sove);

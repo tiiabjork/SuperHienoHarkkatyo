@@ -80,7 +80,7 @@ public class ToDoListaTest {
         lista.lisaaTehtava("Avaimet");
         lista.lisaaTehtava("Klusterihengailut");
         lista.lisaaTehtava("Nakkeilu Tekiksen vujuilla");
-
+        
         lista.muutaTehdyksi("Avaimet");
 
         lista.lisaaTehtava("Valitkaa edustajat opetuksenkehityksentyöryhmään");

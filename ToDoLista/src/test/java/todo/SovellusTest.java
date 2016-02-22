@@ -87,6 +87,7 @@ public class SovellusTest {
     }   
         @Test
         public void listanTulostusTehdyillaTehtavilla() {
+            
         listat.lisaaLista(lista);
         lista.muutaTehdyksi("Testilisäys");
         listat.tulostaListanSisalto(lista);

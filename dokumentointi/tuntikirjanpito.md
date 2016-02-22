@@ -21,3 +21,6 @@
 * Sekvenssikaavioiden luomista, sekä testien hiomista. ~3h
 * Graafisen käyttöliittymän nappuloiden toiminnan parantamista ja koodin muokkausta sen ehdoilla. ~1,5h
 * Checkstyle-reportin säätöä ja virheiden muokkaamista. ~1h
+
+**Maanantai 22.2.**
+* Teksikäyttöliittymän poisto ja muun koodin sievennystä. Muutama bugi GUI:n toiminnasta korjattu. ~2h
