@@ -2,6 +2,7 @@ package todo.grafiikka;
 
 import java.awt.Component;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import todo.Sovellus;
 import todo.Tehtava;
@@ -46,7 +47,6 @@ public class GrafiikkaUI extends javax.swing.JFrame {
         lisaaListaButton = new javax.swing.JButton();
         poistaValittuListaButton = new javax.swing.JButton();
         poistaValittuTehtavaButton = new javax.swing.JButton();
-        tallennaMuutoksetButton = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -151,13 +151,6 @@ public class GrafiikkaUI extends javax.swing.JFrame {
             }
         });
 
-        tallennaMuutoksetButton.setText("Tallenna muutokset");
-        tallennaMuutoksetButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tallennaMuutoksetButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -190,13 +183,12 @@ public class GrafiikkaUI extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(listatComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(poistaValittuListaButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(lisaaListaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lisaaListaButton)))))
+                                        .addGap(0, 137, Short.MAX_VALUE)
+                                        .addComponent(poistaValittuListaButton))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lisaaListaTextField)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lisaaListaButton)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,9 +201,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
                             .addComponent(muutaTekemattomaksiButton, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(poistaValittuTehtavaButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tallennaMuutoksetButton, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addComponent(poistaValittuTehtavaButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -249,9 +239,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
                     .addComponent(muutaTekemattomaksiButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(poistaValittuTehtavaButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(tallennaMuutoksetButton)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -287,10 +275,14 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lisaaTehtavaTextFieldActionPerformed
 
     private void lisaaTehtavaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisaaTehtavaButtonActionPerformed
-        if (lisaaTehtavaTextField.getText() == "" || lisaaTehtavaTextField.getText().isEmpty()) {
+        String tsekkaus = (String) lisaaTehtavaTextField.getText();
+        String lisattava = tsekkaus;
+        tsekkaus = tsekkaus.replaceAll("\\s+","");
+        
+        if (tsekkaus.equals("") || lisaaTehtavaTextField.getText().isEmpty()) {
+            lisaaTehtavaTextField.setText("");
             return;
         }
-        String lisattava = (String) lisaaTehtavaTextField.getText();
         ToDoLista lista = (ToDoLista) sove.palautaLista(listatComboBox.getSelectedItem());
         lista.lisaaTehtava(lisattava);
         lisaaTehtavaTextField.setText("");
@@ -298,7 +290,11 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lisaaTehtavaButtonActionPerformed
 
     private void lisaaListaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisaaListaButtonActionPerformed
-        if (lisaaListaTextField.getText() == "" || lisaaListaTextField.getText().isEmpty()) {
+        String tsekkaus = (String) lisaaListaTextField.getText();
+        tsekkaus = tsekkaus.replaceAll("\\s+","");
+        
+        if (tsekkaus.equals("") || lisaaListaTextField.getText().isEmpty()) {
+            lisaaListaTextField.setText("");
             return;
         }
         listatComboBox.setVisible(true);
@@ -311,26 +307,35 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lisaaListaButtonActionPerformed
 
     private void poistaValittuTehtavaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poistaValittuTehtavaButtonActionPerformed
-        ToDoLista lista = (ToDoLista) sove.palautaLista(listatComboBox.getSelectedItem());
-        Tehtava pois = (Tehtava) tehdytList.getSelectedValue();
-        lista.poistaTehtava(pois);
-        Tehtava poistettava = (Tehtava) tekemattomatList.getSelectedValue();
-        lista.poistaTehtava(poistettava);
+//        if (tehdytList.getSelectedValue() == null && tekemattomatList.getSelectedValue() == null) {
+//            return;
+//        }
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Haluatko varmasti poistaa valitun tehtävän?", "Varoitus", dialogButton);
 
-        paivita(lista);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            ToDoLista lista = (ToDoLista) sove.palautaLista(listatComboBox.getSelectedItem());
+            Tehtava pois = (Tehtava) tehdytList.getSelectedValue();
+            lista.poistaTehtava(pois);
+            Tehtava poistettava = (Tehtava) tekemattomatList.getSelectedValue();
+            lista.poistaTehtava(poistettava);
+
+            paivita(lista);
+        }
     }//GEN-LAST:event_poistaValittuTehtavaButtonActionPerformed
 
     private void poistaValittuListaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poistaValittuListaButtonActionPerformed
-        String poistettavaLista = (String) listatComboBox.getSelectedItem();
-        ToDoLista lista = sove.palautaLista(poistettavaLista);
-        sove.poistaLista(lista);
-        listatComboBox.removeItem(poistettavaLista);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Haluatko varmasti poistaa valitun listan?", "Varoitus", dialogButton);
+
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            String poistettavaLista = (String) listatComboBox.getSelectedItem();
+            ToDoLista lista = sove.palautaLista(poistettavaLista);
+            sove.poistaLista(lista);
+            listatComboBox.removeItem(poistettavaLista);
+        }
     }//GEN-LAST:event_poistaValittuListaButtonActionPerformed
 
-    private void tallennaMuutoksetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tallennaMuutoksetButtonActionPerformed
-        
-    }//GEN-LAST:event_tallennaMuutoksetButtonActionPerformed
-     
     public void paivita(ToDoLista lista) {
         DefaultListModel tehdyt = new DefaultListModel();
         DefaultListModel tekemattomat = new DefaultListModel();
@@ -343,7 +348,12 @@ public class GrafiikkaUI extends javax.swing.JFrame {
         }
         tehdytList.setModel(tehdyt);
         tekemattomatList.setModel(tekemattomat);
-
+        if (tehdyt.isEmpty() && tekemattomat.isEmpty()) {
+            poistaValittuTehtavaButton.setEnabled(false);
+        } else {
+            poistaValittuTehtavaButton.setEnabled(true);
+        }
+        
         if (tehdyt.isEmpty()) {
             muutaTekemattomaksiButton.setEnabled(false);
         } else {
@@ -356,9 +366,9 @@ public class GrafiikkaUI extends javax.swing.JFrame {
             muutaTehdyksiButton.setEnabled(true);
         }
     }
-    
+
     private void paivitaTyhjaksi() {
-        
+
         DefaultListModel tehdyt = new DefaultListModel();
         DefaultListModel tekemattomat = new DefaultListModel();
         tehdytList.setModel(tehdyt);
@@ -393,10 +403,8 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     private javax.swing.JButton muutaTekemattomaksiButton;
     private javax.swing.JButton poistaValittuListaButton;
     private javax.swing.JButton poistaValittuTehtavaButton;
-    private javax.swing.JButton tallennaMuutoksetButton;
     private javax.swing.JList tehdytList;
     private javax.swing.JList tekemattomatList;
     // End of variables declaration//GEN-END:variables
 
-    
 }

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Luokka pitÃ¤Ã¤ tehtÃ¤viÃ¤ listassa. Luokka osaa lajitella tehtÃ¤vÃ¤t tehtyihin ja
- * tekemÃ¤ttÃ¶miin. Luokka tarjoaa myÃ¶s vÃ¤lineitÃ¤ erityyppisten listojen
- * palautukselle, jotta monipuoliset toiminnot onnistuvat.
+ * Luokka pitÃ¤Ã¤ tehtÃ¤viÃ¤ listassa. Luokka osaa lajitella tehtÃ¤vÃ¤t
+ * tehtyihin ja tekemÃ¤ttÃ¶miin. Luokka tarjoaa myÃ¶s vÃ¤lineitÃ¤ erityyppisten
+ * listojen palautukselle, jotta monipuoliset toiminnot onnistuvat.
  *
  * @author Tiia
  */
@@ -16,9 +16,9 @@ public class ToDoLista {
     private String nimi;
     private ArrayList<Tehtava> tekemattomat;
     private ArrayList<Tehtava> tehdyt;
-
     /**
      * Alustetaan uusi lista, jonka nimi annetaan konstruktorille parametrina.
+     *
      * @param nimi Listan nimi
      */
     public ToDoLista(String nimi) {
@@ -33,9 +33,8 @@ public class ToDoLista {
      *
      * @see todo.Tehtava#onkoTehty()
      */
-    
     public void muutaTehdyksi(String tehtava) {
-                for (Tehtava duuni : tekemattomat) {
+        for (Tehtava duuni : tekemattomat) {
             if (tehtava.equals(duuni.toString())) {
                 duuni.merkitaanTehdyksi();
             }
@@ -43,14 +42,13 @@ public class ToDoLista {
         siirraTehtyTehtavaTehtyihinTehtaviin();
     }
     /**
-     * Metodi muuttaa stringinÃ¤ annetun tehtÃ¤vÃ¤n tilan takaisin tekemÃ¤ttÃ¶mÃ¤ksi.
-     * Samalla se siirtÃ¤Ã¤ tehtÃ¤vÃ¤n oikeaan listaa.
+     * Metodi muuttaa stringinÃ¤ annetun tehtÃ¤vÃ¤n tilan takaisin
+     * tekemÃ¤ttÃ¶mÃ¤ksi. Samalla se siirtÃ¤Ã¤ tehtÃ¤vÃ¤n oikeaan listaa.
      *
      * @param tehtava TehtÃ¤vÃ¤ joka halutaan muuttaa tekemÃ¤ttÃ¶mÃ¤ksi
      *
      * @see todo.Tehtava#onkoTehty()
      */
-
     public void muutaTekemattomaksi(String tehtava) {
         for (Tehtava duuni : tehdyt) {
             if (tehtava.equals(duuni.toString())) {
@@ -60,8 +58,8 @@ public class ToDoLista {
         siirraTekematonTekemattomiinTehtaviin();
     }
     /**
-     * Metodilla lisÃ¤tÃ¤Ã¤n listaan uusi tehtÃ¤vÃ¤, joka on aluksi tekemÃ¤ttÃ¶missÃ¤
-     * tehtÃ¤vissÃ¤.
+     * Metodilla lisÃ¤tÃ¤Ã¤n listaan uusi tehtÃ¤vÃ¤, joka on aluksi
+     * tekemÃ¤ttÃ¶missÃ¤ tehtÃ¤vissÃ¤.
      *
      * @param tehtava Käyttäjän lisäämä syöte
      */
@@ -71,8 +69,8 @@ public class ToDoLista {
         }
     }
     /**
-     * Metodilla tarkistetaan tekemÃ¤ttÃ¶mien tehtÃ¤vien listasta tehdyt tehtÃ¤vÃ¤t
-     * ja siirretÃ¤Ã¤n ne tehtyjen listaan.
+     * Metodilla tarkistetaan tekemÃ¤ttÃ¶mien tehtÃ¤vien listasta tehdyt
+     * tehtÃ¤vÃ¤t ja siirretÃ¤Ã¤n ne tehtyjen listaan.
      */
     public void siirraTehtyTehtavaTehtyihinTehtaviin() {
         ArrayList<Tehtava> poistettavat = new ArrayList<>();
@@ -86,8 +84,8 @@ public class ToDoLista {
         tehdyt.addAll(poistettavat);
     }
     /**
-     * Metodi siirtÃ¤Ã¤ tehtyjen tehtÃ¤vien seasta tekemÃ¤ttÃ¶mÃ¤ksi muutetut tehtÃ¤vÃ¤t
-     * tekemÃ¤ttÃ¶mien tehtÃ¤vien listaan.
+     * Metodi siirtÃ¤Ã¤ tehtyjen tehtÃ¤vien seasta tekemÃ¤ttÃ¶mÃ¤ksi muutetut
+     * tehtÃ¤vÃ¤t tekemÃ¤ttÃ¶mien tehtÃ¤vien listaan.
      */
     private void siirraTekematonTekemattomiinTehtaviin() {
         ArrayList<Tehtava> poistettavat = new ArrayList<>();
@@ -100,8 +98,9 @@ public class ToDoLista {
         tekemattomat.addAll(poistettavat);
     }
     /**
-     * Metodi palauttaa sekÃ¤ tekemÃ¤ttÃ¶mÃ¤t ettÃ¤ tehdyt tehtÃ¤vÃ¤t yhdessÃ¤ listassa.
-     * 
+     * Metodi palauttaa sekÃ¤ tekemÃ¤ttÃ¶mÃ¤t ettÃ¤ tehdyt tehtÃ¤vÃ¤t yhdessÃ¤
+     * listassa.
+     *
      * @return Kaikki tÃ¤mÃ¤n todo-listan tehtÃ¤vÃ¤t yhdessÃ¤ listassa
      */
     public List<Tehtava> palautaKaikkiTehtavat() {
@@ -111,9 +110,9 @@ public class ToDoLista {
         return kaikkiTehtavat;
     }
     /**
-     * Metodi palauttaa sekÃ¤ tekemÃ¤ttÃ¶mÃ¤t ettÃ¤ tehdyt tehtÃ¤vÃ¤t listassa string-
-     * muodossa. 
-     * 
+     * Metodi palauttaa sekÃ¤ tekemÃ¤ttÃ¶mÃ¤t ettÃ¤ tehdyt tehtÃ¤vÃ¤t listassa
+     * string- muodossa.
+     *
      * @return Kaikki tÃ¤mÃ¤n todo-listan tehtÃ¤vÃ¤t string-muodossa
      */
     public List<String> palautaKaikkiTehtavatStringina() {
@@ -138,13 +137,15 @@ public class ToDoLista {
     }
     /**
      * Metodi palauttaa kaikki listan tekemättömät tehtävät listassa.
+     *
      * @return Tekemättömien tehtävien lista
      */
     public List<Tehtava> palautaTekemattomat() {
         return tekemattomat;
     }
     /**
-     * Metori palauttaa kaikki listan tehdyt tehtävät listana.
+     * Metodi palauttaa kaikki listan tehdyt tehtävät listana.
+     *
      * @return Tehtyjen tehtävien lista
      */
     public List<Tehtava> palautaTehdyt() {
@@ -161,7 +162,7 @@ public class ToDoLista {
         return tekemattomat.size();
     }
     /**
-     * Metori palauttaa tehtyjen tehtävien määrän.
+     * Metodi palauttaa tehtyjen tehtävien määrän.
      * @return Tehtyjen tehtävien määrä.
      */
     public int tehtyjaTehtavia() {
@@ -173,7 +174,7 @@ public class ToDoLista {
     @Override
     public String toString() {
         return nimi;
-    }  
+    }
     /**
      * Metodi palauttaa ToDoListan nimen.
      * @return Listan nimi
@@ -192,7 +193,7 @@ public class ToDoLista {
         }
         if (muutettava.onkoTehty()) {
             tehdyt.remove(muutettava);
-        } else  {
+        } else {
             tekemattomat.remove(muutettava);
         }
     }

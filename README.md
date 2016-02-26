@@ -13,3 +13,5 @@ Käyttäjällä on mahdollisuus poistaa sekä tehtäviä, että listoja.
 [Aiheen kuvaus](dokumentointi/aiheenKuvausJaRakenne.md)
 
 [Tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
+
+[Käyttöohjeet](dokumentointi/kayttoohjeet.md)

@@ -14,6 +14,17 @@ Yksittäinen henkilö.
 * Selaa listoja -kohdassa on mahdollisuus lisätä ja poistaa kohtia
 * Poistu -kohdassa poistutaan sovelluksesta tallentaen muutokset
 
+### Rakennekuvaus
+
+ToDo -listan rakenne on yksinkertainen ja simppeli, jota olisi helppo laajentaa mm. kategorioilla ja muutokset tallentavalla tekstitiedostolla.
+
+Ohjelman logiikka vaatii kolme luokkaa - Sovellus, ToDoLista ja Tehtava. Tehtava on yksinkertainen luokka, johon tallennetaan tehtävän kuvaus ja boolean-arvo siitä, onko tehtävä tehty vai tekemätön. Näitä Tehtava-olioita voi tallentaa ToDoLista-luokassa tehtyjen ja tekemättömien listalle. ToDoLista on yksi lista, jossa voi olla monta tehtävää. ToDoLista-luokalla on monta metodia, jolla se voi manipuloita ja muuttaa tehtävien tilaa ja järjestää niitä ajantasalle oikeisiin listoihin.
+
+Sovellus-luokka on yhden ihmisen oma sovellus, johon voi tallentaa monta ToDoLista-oliota Tehtava-olioineen. Sovellus-luokka hoitaa listojen manipuloinnin ja toiminnan.
+
+Main on vain luokka, joka käynnistää graafisen käyttöliittymän. Graafinen käyttöliittymä tuntee ToDoListan ja Sovelluksen, mutta ei tehtäviä. 
+
+
 ### Luokkakaavioita
 
 **Määrittelyvaiheen luokkakaavio**
@@ -29,6 +40,11 @@ Yksittäinen henkilö.
 
 ![Yolo]
 (/dokumentointi/todolistaYhaTarkempiLuokkakaavio.png)
+
+**Viimeisin luokkakaavio, josta on poistettu tekstikäyttöliittymä**
+
+![Yesss]
+(/dokumentointi/viimeisinLuokkakaavio.png)
 
 ### Sekvenssikaavioita
 

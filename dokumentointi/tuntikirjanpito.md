@@ -24,3 +24,6 @@
 
 **Maanantai 22.2.**
 * Teksikäyttöliittymän poisto ja muun koodin sievennystä. Muutama bugi GUI:n toiminnasta korjattu. ~2h
+
+**Perjantai 26.2.**
+* Graafisen käyttöliittymän hiomista, käyttöohjeiden tekoa ja muun dokumentaation päivittämistä. ~2h
