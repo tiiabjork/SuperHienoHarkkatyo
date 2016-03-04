@@ -220,6 +220,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Muuta valittu teht&#xe4;v&#xe4; tehdyksi"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muutaTehdyksiButtonActionPerformed"/>
@@ -229,6 +230,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Muuta valittu teht&#xe4;v&#xe4; tekem&#xe4;tt&#xf6;m&#xe4;ksi"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muutaTekemattomaksiButtonActionPerformed"/>
@@ -268,6 +270,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Lis&#xe4;&#xe4;"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lisaaTehtavaButtonActionPerformed"/>
@@ -318,6 +321,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Poista valittu lista"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="poistaValittuListaButtonActionPerformed"/>
@@ -327,6 +331,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Poista valittu teht&#xe4;v&#xe4;"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="poistaValittuTehtavaButtonActionPerformed"/>

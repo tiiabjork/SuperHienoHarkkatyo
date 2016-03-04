@@ -78,6 +78,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
 
         muutaTehdyksiButton.setText("Muuta valittu tehtävä tehdyksi");
         muutaTehdyksiButton.setToolTipText("");
+        muutaTehdyksiButton.setEnabled(false);
         muutaTehdyksiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 muutaTehdyksiButtonActionPerformed(evt);
@@ -86,6 +87,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
 
         muutaTekemattomaksiButton.setText("Muuta valittu tehtävä tekemättömäksi");
         muutaTekemattomaksiButton.setToolTipText("");
+        muutaTekemattomaksiButton.setEnabled(false);
         muutaTekemattomaksiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 muutaTekemattomaksiButtonActionPerformed(evt);
@@ -106,6 +108,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
 
         lisaaTehtavaButton.setText("Lisää");
         lisaaTehtavaButton.setToolTipText("");
+        lisaaTehtavaButton.setEnabled(false);
         lisaaTehtavaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lisaaTehtavaButtonActionPerformed(evt);
@@ -137,6 +140,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
 
         poistaValittuListaButton.setText("Poista valittu lista");
         poistaValittuListaButton.setToolTipText("");
+        poistaValittuListaButton.setEnabled(false);
         poistaValittuListaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poistaValittuListaButtonActionPerformed(evt);
@@ -145,6 +149,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
 
         poistaValittuTehtavaButton.setText("Poista valittu tehtävä");
         poistaValittuTehtavaButton.setToolTipText("");
+        poistaValittuTehtavaButton.setEnabled(false);
         poistaValittuTehtavaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poistaValittuTehtavaButtonActionPerformed(evt);
@@ -246,6 +251,9 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void muutaTehdyksiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muutaTehdyksiButtonActionPerformed
+        if (tehdytList.getSelectedValue() != null) {
+            return;
+        }
         ToDoLista lista = (ToDoLista) sove.palautaLista(listatComboBox.getSelectedItem());
         Tehtava muutettava = (Tehtava) tekemattomatList.getSelectedValue();
         lista.muutaTehdyksi(muutettava.toString());
@@ -253,6 +261,9 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_muutaTehdyksiButtonActionPerformed
 
     private void muutaTekemattomaksiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muutaTekemattomaksiButtonActionPerformed
+        if (tekemattomatList.getSelectedValue() != null) {
+            return;
+        }
         ToDoLista lista = (ToDoLista) sove.palautaLista(listatComboBox.getSelectedItem());
         Tehtava muutettava = (Tehtava) tehdytList.getSelectedValue();
         lista.muutaTekemattomaksi(muutettava.toString());
@@ -275,6 +286,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lisaaTehtavaTextFieldActionPerformed
 
     private void lisaaTehtavaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisaaTehtavaButtonActionPerformed
+
         String tsekkaus = (String) lisaaTehtavaTextField.getText();
         String lisattava = tsekkaus;
         tsekkaus = tsekkaus.replaceAll("\\s+","");
@@ -303,13 +315,15 @@ public class GrafiikkaUI extends javax.swing.JFrame {
         sove.lisaaLista(uusiLista);
         lisaaListaTextField.setText("");
         listatComboBox.addItem(uusiLista.palautaListanNimi());
+        poistaValittuListaButton.setEnabled(true);
+        lisaaTehtavaButton.setEnabled(true);
         paivita(uusiLista);
     }//GEN-LAST:event_lisaaListaButtonActionPerformed
 
     private void poistaValittuTehtavaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poistaValittuTehtavaButtonActionPerformed
-//        if (tehdytList.getSelectedValue() == null && tekemattomatList.getSelectedValue() == null) {
-//            return;
-//        }
+        if (tehdytList.getSelectedValue() == null && tekemattomatList.getSelectedValue() == null) {
+            return;
+        }
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog(null, "Haluatko varmasti poistaa valitun tehtävän?", "Varoitus", dialogButton);
 
@@ -325,6 +339,10 @@ public class GrafiikkaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_poistaValittuTehtavaButtonActionPerformed
 
     private void poistaValittuListaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poistaValittuListaButtonActionPerformed
+        if (listatComboBox.getSelectedItem() == null) {
+            return;
+        }
+        
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog(null, "Haluatko varmasti poistaa valitun listan?", "Varoitus", dialogButton);
 
@@ -348,6 +366,7 @@ public class GrafiikkaUI extends javax.swing.JFrame {
         }
         tehdytList.setModel(tehdyt);
         tekemattomatList.setModel(tekemattomat);
+        
         if (tehdyt.isEmpty() && tekemattomat.isEmpty()) {
             poistaValittuTehtavaButton.setEnabled(false);
         } else {
@@ -375,6 +394,9 @@ public class GrafiikkaUI extends javax.swing.JFrame {
         tekemattomatList.setModel(tekemattomat);
         muutaTehdyksiButton.setEnabled(false);
         muutaTekemattomaksiButton.setEnabled(false);
+        poistaValittuListaButton.setEnabled(false);
+        poistaValittuTehtavaButton.setEnabled(false);
+        lisaaTehtavaButton.setEnabled(false);
     }
 
     /**
