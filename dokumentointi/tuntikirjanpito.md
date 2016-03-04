@@ -27,3 +27,6 @@
 
 **Perjantai 26.2.**
 * Graafisen käyttöliittymän hiomista, käyttöohjeiden tekoa ja muun dokumentaation päivittämistä. ~2h
+
+**Perjantai 4.3.**
+* Graafisen käyttöliittymän nappuloiden viimeistely, dokumentaation päivitys ja viimeistely. ~2h
